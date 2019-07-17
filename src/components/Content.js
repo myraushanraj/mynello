@@ -1,36 +1,39 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React from "react"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+
+
 
 import Player from './JWPlayer'
 import Audio from './Audio'
 import Audio2 from './Audio2'
-import Header from './Header'
+
+import Home from './Home'
+import About from './About'
 
 
 
 const Content = () => {
     return (
-        // <BrowserRouter>
+        <Router>
+            <div>
+                <nav style={{ margin: 10 }}>
+                    <Link to='/home' style={{ padding: 10 }}>
+                        Home
+                    </Link>
+                    <Link to='/home' style={{ padding: 10 }}>
+                        Home
+                    </Link>
 
-        //     <Switch>
-        //         <Header />
-        //         <Route exact path="/" component={Player} />
-        //         <Route exact path="/audio1" component={Audio} />
-        //         <Route exact path="/audio2" component={Audio2} />
-
-
-        //     </Switch>
-        // </BrowserRouter>
-
-        <Router> 
-   <div className="App">
-    <Header /> 
-    <Route exact path="/" component={Player}/> 
-    <Route path="/dashboard" component={()=><Dashboard stuff={stuff} />}/>  
-    <Footer /> 
-   </div>
-  </Router>
-
+                    <Link to='/about' style={{ padding: 10 }}>
+                        About
+                    </Link>
+                    <Audio />
+                </nav>
+                {/* <Route path='/' exact component={Audio2} /> */}
+                <Route path='/about' component={About} />
+                <Route path='/home' component={Home} />
+            </div>
+        </Router>
     )
 }
 
